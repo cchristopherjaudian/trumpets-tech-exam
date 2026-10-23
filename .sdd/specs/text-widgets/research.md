@@ -39,7 +39,7 @@
 
 ### Text length semantics
 - **Context**: Requirement 5 requires at least 10,000 characters, Unicode support, and a defined maximum.
-- **Findings**: The HTML `maxlength` attribute and JavaScript `String.length` both count UTF-16 code units, as does zod's `.max()`. Emoji count as 2 units. In the worst case, JSON encoding of control characters (`\u0000`) expands one unit to 6 bytes.
+- **Findings**: The HTML `maxlength` attribute and JavaScript `String.length` both count UTF-16 code units. zod 4.6's `.max()` counts Unicode code points instead (verified during task 1.2), so the shared schema enforces the limit with an explicit `String.length` refinement. Emoji count as 2 units. In the worst case, JSON encoding of control characters (`\u0000`) expands one unit to 6 bytes.
 - **Implications**: Set `MAX_TEXT_LENGTH = 50_000` UTF-16 code units, shared by client and server. Set the Express JSON body limit to `512kb`, which covers the worst-case 300 KB plus envelope.
 
 ## Architecture Pattern Evaluation

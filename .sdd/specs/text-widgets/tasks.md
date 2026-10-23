@@ -12,7 +12,7 @@
   - Ensure no secrets or machine-specific configuration are committed.
   - _Requirements: 9.5, 10.6, 10.8_
 
-- [ ] 1.2 Define the shared widget contract used by client and server
+- [x] 1.2 Define the shared widget contract used by client and server
   - Describe the widget model (unique identifier, text, creation and last-updated timestamps) and the list response shape.
   - Define the maximum text length (50,000 UTF-16 code units) as one shared constant.
   - Define validation schemas for creating a widget (optional text, default empty), updating text (required string within the limit) and widget identifiers (UUID).
