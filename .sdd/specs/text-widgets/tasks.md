@@ -92,7 +92,7 @@
   - _Requirements: 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.8, 6.6_
 
 - [ ] 4. Widget App features
-- [ ] 4.1 Provide app-wide services and unload-safe saving
+- [x] 4.1 Provide app-wide services and unload-safe saving
   - Create one API client and one autosave scheduler for the app and make them available to all components.
   - Connect the scheduler's save action to the API client's text update.
   - Flush all pending saves with the keepalive option when the page is hidden or about to unload, and dispose cleanly on unmount.

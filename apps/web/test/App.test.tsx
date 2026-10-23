@@ -1,7 +1,8 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
-import { App } from '../src/App.js';
+import { App, AppProviders } from '../src/App.js';
+import { useAutosaveScheduler, useWidgetApi } from '../src/api/widget-api-context.js';
 
 describe('App', () => {
   it('renders the pod page heading inside the main landmark', () => {
@@ -10,6 +11,22 @@ describe('App', () => {
     const main = screen.getByRole('main');
     expect(main).toBeInTheDocument();
     expect(screen.getByRole('heading', { level: 1, name: 'Text widgets' })).toBeVisible();
+  });
+
+  it('wraps the page in the app-wide API client and autosave scheduler', () => {
+    let hasServices = false;
+    function Probe() {
+      hasServices = Boolean(useWidgetApi() && useAutosaveScheduler());
+      return null;
+    }
+
+    render(
+      <AppProviders>
+        <Probe />
+      </AppProviders>,
+    );
+
+    expect(hasServices).toBe(true);
   });
 
   it('runs in a DOM environment that supports user interaction', async () => {
