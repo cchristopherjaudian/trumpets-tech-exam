@@ -55,7 +55,7 @@
   - _Requirements: 1.5, 2.5, 5.2, 5.3, 5.4, 5.5, 6.3, 7.1, 7.3, 7.4, 9.1, 9.3_
 
 - [ ] 3. Widget App foundations
-- [ ] 3.1 Scaffold the React web application and its test environment
+- [x] 3.1 Scaffold the React web application and its test environment
   - Create the single-page app with a development server that proxies API requests to the backend (same origin, no CORS).
   - Configure component tests with a DOM environment (jsdom 28.x), Testing Library and user-event, integrated with the root test command.
   - Add a single minimal stylesheet covering layout column, spacing, widget borders, whitespace-preserving text and save-status colours.
