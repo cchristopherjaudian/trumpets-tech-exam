@@ -117,7 +117,7 @@
   - Depends on 3.2 and 4.1.
   - _Requirements: 1.6, 2.1, 2.2, 2.3, 2.4, 2.5, 3.1, 3.2, 3.8, 5.6, 6.1_
 
-- [ ] 4.4 Compose the widget board page
+- [x] 4.4 Compose the widget board page
   - Show a header with the "Add widget" button and a pending indicator while creations are in flight.
   - Show a loading indicator while widgets load, an alert with retry if loading fails, and an empty-state message when there are no widgets.
   - Render widgets in stored order, keyed by identifier, and display action notices for create and delete failures.

@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react';
 import { WidgetApiProvider } from './api/widget-api-context.js';
 import { createWidgetApi, type WidgetApi } from './api/widget-api.js';
+import { WidgetBoard } from './components/widgets/WidgetBoard.js';
 
 const defaultApi = createWidgetApi();
 
@@ -13,7 +14,7 @@ export function App({ api }: { api?: WidgetApi }) {
   return (
     <AppProviders {...(api && { api })}>
       <main className="app">
-        <h1>Text widgets</h1>
+        <WidgetBoard />
       </main>
     </AppProviders>
   );
