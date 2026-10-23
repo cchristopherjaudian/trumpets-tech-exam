@@ -72,7 +72,7 @@
   - Depends on 3.1. Can run in parallel with 3.3 and 3.4.
   - _Requirements: 1.6, 2.1, 2.4, 2.5, 3.8, 5.1, 8.1, 8.2, 8.3, 8.4, 8.5, 9.4_
 
-- [ ] 3.3 (P) Build the typed API client
+- [x] 3.3 (P) Build the typed API client
   - Wrap the four widget operations so each returns an explicit success or failure result instead of throwing, distinguishing HTTP errors (with status and error code) from network failures.
   - Support an "outlive the page" option for saves, applied only when the payload is under the browser's 60 KB keepalive budget.
   - Make the client injectable into the component tree so tests can substitute a fake.
