@@ -30,6 +30,29 @@ body {
   gap: var(--gap);
 }
 
+/* Buttons */
+.button {
+  font: inherit;
+  padding: 0.375rem 0.875rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+.button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.button--primary {
+  border-color: currentColor;
+  font-weight: 600;
+}
+.button--danger {
+  border-color: var(--danger);
+  color: var(--danger);
+}
+
 /* Widget container */
 .widget-frame {
   border: 1px solid var(--border);

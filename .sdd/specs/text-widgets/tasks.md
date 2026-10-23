@@ -62,7 +62,7 @@
   - Render a placeholder page and a smoke test proving the setup works.
   - _Requirements: 8.4, 9.5_
 
-- [ ] 3.2 (P) Build the reusable UI primitives
+- [x] 3.2 (P) Build the reusable UI primitives
   - A button used for every action in the interface, with primary, secondary and danger variants, defaulting to a non-submit button.
   - A generic labelled multi-line text input. It reports changed values, enforces the shared maximum length, optionally shows a character counter, and preserves whitespace and line breaks.
   - A bordered widget container with a title, an actions area and a footer, able to host any widget type and exposed as a labelled region.
