@@ -1,0 +1,18 @@
+# Installed and built inside the image
+node_modules
+**/node_modules
+**/dist
+coverage
+
+# Not needed to build or run the app
+.git
+.sdd
+.claude
+*.md
+!README.md
+*.log
+.DS_Store
+
+# Never ship local secrets
+.env
+.env.*

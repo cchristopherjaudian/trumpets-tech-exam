@@ -2,7 +2,7 @@
 
 > Commit to Git at the end of every sub-task with a descriptive message so the history reflects incremental progress (10.6).
 
-- [ ] 1. Workspace foundation and shared contract
+- [x] 1. Workspace foundation and shared contract
 - [x] 1.1 Set up the version-controlled TypeScript monorepo and test runner
   - Initialise Git with an ignore list covering dependencies, build output, coverage and environment files.
   - Create a workspace layout with separate server, web and shared packages, plus a strict TypeScript base configuration that every package extends.
@@ -20,7 +20,7 @@
   - Unit-test the schemas: accept empty, 1,000, 10,000 and 50,000-character strings and Unicode/emoji. Reject non-string text, over-limit text and malformed identifiers.
   - _Requirements: 5.1, 5.3, 5.4, 5.5, 7.2, 7.4, 7.6_
 
-- [ ] 2. Widget Service backend
+- [x] 2. Widget Service backend
 - [x] 2.1 (P) Build the in-memory widget store
   - Store widgets keyed by identifier with constant-time get, insert, update and delete.
   - Return widgets in creation order, and keep a widget's position unchanged when its text is updated.
@@ -54,7 +54,7 @@
   - Verify oversize bodies, malformed JSON, invalid identifiers and unknown identifiers return the correct status and error envelope.
   - _Requirements: 1.5, 2.5, 5.2, 5.3, 5.4, 5.5, 6.3, 7.1, 7.3, 7.4, 9.1, 9.3_
 
-- [ ] 3. Widget App foundations
+- [x] 3. Widget App foundations
 - [x] 3.1 Scaffold the React web application and its test environment
   - Create the single-page app with a development server that proxies API requests to the backend (same origin, no CORS).
   - Configure component tests with a DOM environment (jsdom 28.x), Testing Library and user-event, integrated with the root test command.
@@ -91,7 +91,7 @@
   - Depends on 1.2 (types only). The save function is injected, so this can run in parallel with 3.2 and 3.3.
   - _Requirements: 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.8, 6.6_
 
-- [ ] 4. Widget App features
+- [x] 4. Widget App features
 - [x] 4.1 Provide app-wide services and unload-safe saving
   - Create one API client and one autosave scheduler for the app and make them available to all components.
   - Connect the scheduler's save action to the API client's text update.
@@ -133,7 +133,7 @@
   - Performance sanity: with 50 widgets and 10,000-character text, typing in one widget re-renders only that widget.
   - _Requirements: 1.1, 1.2, 1.3, 1.6, 1.7, 2.2, 2.3, 3.1, 3.2, 3.4, 4.2, 4.3, 4.4, 4.5, 5.2, 5.6, 6.2, 6.4, 6.5, 6.6, 9.2, 9.3_
 
-- [ ] 5. Integration and packaging
+- [x] 5. Integration and packaging
 - [x] 5.1 Wire the production build and single-origin serving
   - Have the backend optionally serve the built web app and fall back to the app's entry page for non-API routes.
   - Provide root commands to run both apps together in development, build all packages in dependency order, and start the production build on one port.
@@ -142,7 +142,7 @@
   - Depends on 2.3 and 4.4.
   - _Requirements: 4.2, 7.6, 10.1_
 
-- [ ] 5.2 (P) Containerise the application
+- [x] 5.2 (P) Containerise the application
   - Multi-stage image: install dependencies, build all packages, then a slim runtime on Node 24 with production dependencies only, running as a non-root user.
   - Configure the runtime to serve the web build and API on port 3000, with a health check against the health endpoint.
   - Provide a compose file and an ignore file so a single documented command builds and starts the app.
@@ -150,7 +150,7 @@
   - Depends on 5.1. Can run in parallel with 5.3.
   - _Requirements: 10.7_
 
-- [ ] 5.3 (P) Write the project README
+- [x] 5.3 (P) Write the project README
   - Prerequisites and step-by-step instructions to install, run in development, run the production build, run with Docker, and run tests and type checks.
   - Explain the architecture, the implementation approach and key choices: the "done typing" definition, coalesced saves, local draft state, the shared contract, and the repository port.
   - Discuss tradeoffs (in-memory storage, last-write-wins across tabs, server-generated IDs) and what would be done with more time.

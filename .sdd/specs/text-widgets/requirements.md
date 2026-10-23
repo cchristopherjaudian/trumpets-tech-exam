@@ -1,7 +1,7 @@
 # Requirements Document
 
 ## Project Description (Input)
-Source: `/Users/cchristopherjaudian/Downloads/Trumpet Technical Challenge 2026.pdf`
+Source: `Trumpet Technical Challenge 2026.pdf` (provided by Trumpet)
 
 **Context:** Trumpet helps companies sell using digital sales rooms called "pods" — personalised micro-sites containing documents, images, video, text, etc. Sellers customise pods with widgets (e.g. YouTube embeds, text). Reference: https://intercom.help/trumpet/en/articles/6389888-how-do-i-add-text-to-a-pod
 

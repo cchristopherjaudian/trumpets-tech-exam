@@ -1,0 +1,10 @@
+services:
+  app:
+    build:
+      context: .
+      target: runtime
+    image: text-widgets:latest
+    ports:
+      - "3000:3000"
+    init: true
+    restart: unless-stopped
