@@ -12,12 +12,16 @@
     "node": ">=22.12.0"
   },
   "scripts": {
+    "dev": "concurrently --kill-others-on-fail --names server,web --prefix-colors blue,green \"npm run dev -w @text-widgets/server\" \"npm run dev -w @text-widgets/web\"",
+    "build": "npm run build -w @text-widgets/web && npm run build -w @text-widgets/server",
+    "start": "node --enable-source-maps apps/server/dist/index.js --port 3000",
     "test": "vitest run",
     "test:watch": "vitest",
     "typecheck": "npm run typecheck --workspaces --if-present"
   },
   "devDependencies": {
     "@types/node": "^24.0.0",
+    "concurrently": "^10.0.6",
     "typescript": "~6.0.3",
     "vitest": "^5.0.5"
   }

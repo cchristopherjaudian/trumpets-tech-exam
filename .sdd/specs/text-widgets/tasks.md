@@ -134,7 +134,7 @@
   - _Requirements: 1.1, 1.2, 1.3, 1.6, 1.7, 2.2, 2.3, 3.1, 3.2, 3.4, 4.2, 4.3, 4.4, 4.5, 5.2, 5.6, 6.2, 6.4, 6.5, 6.6, 9.2, 9.3_
 
 - [ ] 5. Integration and packaging
-- [ ] 5.1 Wire the production build and single-origin serving
+- [x] 5.1 Wire the production build and single-origin serving
   - Have the backend optionally serve the built web app and fall back to the app's entry page for non-API routes.
   - Provide root commands to run both apps together in development, build all packages in dependency order, and start the production build on one port.
   - Add an API test confirming static hosting and the fallback do not shadow API routes or API 404s.

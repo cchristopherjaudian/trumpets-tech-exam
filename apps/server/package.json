@@ -5,6 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "tsx watch src/index.ts",
+    "build": "esbuild src/index.ts --bundle --platform=node --format=esm --target=node22 --external:express --external:zod --sourcemap --outfile=dist/index.js",
+    "start": "node --enable-source-maps dist/index.js",
     "typecheck": "tsc --noEmit -p ."
   },
   "dependencies": {
@@ -14,6 +16,7 @@
   "devDependencies": {
     "@types/express": "^5.0.6",
     "@types/supertest": "^7.2.1",
+    "esbuild": "^0.28.2",
     "supertest": "^7.3.1",
     "tsx": "^4.23.15"
   }
