@@ -125,7 +125,7 @@
   - Depends on 4.2 and 4.3.
   - _Requirements: 1.1, 1.2, 1.7, 4.2, 4.3, 4.4, 4.5, 6.5_
 
-- [ ] 4.5 Test the board's user flows with a fake API
+- [x] 4.5 Test the board's user flows with a fake API
   - Clicking "Add widget" repeatedly adds one bordered widget per click, in order. The empty state disappears after the first widget.
   - Typing in one widget leaves other widgets' text unchanged. Exactly one save is sent after the idle period, and one on blur, containing only that widget's text.
   - On mount, stored widgets render with their exact saved text (including a 1,000-character string) in original order. Loading and error-with-retry states render correctly.
