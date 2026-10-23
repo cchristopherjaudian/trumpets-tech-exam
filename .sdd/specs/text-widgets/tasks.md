@@ -29,7 +29,7 @@
   - Can run in parallel with 3.1–3.4: it only depends on the shared contract from 1.2.
   - _Requirements: 1.4, 4.6, 7.5_
 
-- [ ] 2.2 Implement widget lifecycle rules in the service layer
+- [x] 2.2 Implement widget lifecycle rules in the service layer
   - Create a widget with a server-generated unique identifier, the provided or empty text, and matching creation and update timestamps.
   - Update a widget's text and refresh its last-updated timestamp while keeping its identifier, creation time and position.
   - Delete a widget. Report a not-found outcome for unknown identifiers on update and delete, without throwing.
