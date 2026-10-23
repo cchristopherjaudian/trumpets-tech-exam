@@ -365,7 +365,7 @@ function createAutosaveScheduler(options: {
 - Rules:
   - `schedule` with `draft === lastSaved` clears the timer and sets status `saved` (3.5).
   - When the timer fires or `flush` runs: if `inFlight`, mark that a follow-up is needed and return. Otherwise send the `draft` snapshot.
-  - On success, `lastSaved` becomes the snapshot. If `draft !== lastSaved`, send again immediately (coalescing, 3.6). Otherwise the status becomes `saved`.
+  - On success, `lastSaved` becomes the snapshot. If a save was requested while it was in flight (idle timer fired, blur or `flushAll`) and `draft !== lastSaved`, send the newest draft immediately (coalescing, 3.6). If the user is merely still typing, the pending idle timer sends it instead, so mid-word snapshots are not saved. Otherwise the status becomes `saved`.
   - On failure the status becomes `error` and the draft is kept.
   - `cancel` removes the entry, and any late response for a cancelled id is ignored (6.6).
 - The scheduler does not depend on React. Timers use `setTimeout`, which tests control with `vi.useFakeTimers()`.

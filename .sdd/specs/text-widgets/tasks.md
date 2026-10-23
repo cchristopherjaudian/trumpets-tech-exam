@@ -80,7 +80,7 @@
   - Depends on 1.2 and 3.1. Can run in parallel with 3.2 and 3.4.
   - _Requirements: 3.7, 4.1, 5.5, 6.2_
 
-- [ ] 3.4 (P) Build the framework-independent autosave scheduler
+- [x] 3.4 (P) Build the framework-independent autosave scheduler
   - Track each widget's last saved text, current draft and save status independently.
   - Restart a per-widget idle timer (800 ms) on every change. Save when it fires, or immediately on an explicit flush.
   - Skip saving when the draft equals the last saved text, and return the status to "saved" if the user reverts their edits.
