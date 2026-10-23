@@ -3,7 +3,7 @@
 > Commit to Git at the end of every sub-task with a descriptive message so the history reflects incremental progress (10.6).
 
 - [ ] 1. Workspace foundation and shared contract
-- [ ] 1.1 Set up the version-controlled TypeScript monorepo and test runner
+- [x] 1.1 Set up the version-controlled TypeScript monorepo and test runner
   - Initialise Git with an ignore list covering dependencies, build output, coverage and environment files.
   - Create a workspace layout with separate server, web and shared packages, plus a strict TypeScript base configuration that every package extends.
   - Pin the Node version (≥ 22.12, Docker on 24) through engines and a version file, and pin compatible tool versions as recorded in the design.
