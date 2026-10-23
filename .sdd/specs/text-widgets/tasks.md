@@ -47,7 +47,7 @@
   - Depends on 2.2.
   - _Requirements: 5.4, 7.1, 7.3, 7.4, 7.6_
 
-- [ ] 2.4 Test the API end to end against the composed application
+- [x] 2.4 Test the API end to end against the composed application
   - Cover the full flow: create, then list in creation order, update text, list again, delete, and confirm the widget is no longer listed.
   - Verify a 1,000-character string and a Unicode/emoji string with line breaks are stored and returned identically.
   - Verify over-limit text and non-string text are rejected with validation errors and the previously stored text is unchanged.
