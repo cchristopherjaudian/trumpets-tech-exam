@@ -109,7 +109,7 @@
   - Depends on 4.1.
   - _Requirements: 1.2, 1.3, 1.4, 1.5, 4.1, 4.3, 4.5, 6.2, 6.4, 6.5, 6.6_
 
-- [ ] 4.3 Build the text widget with independent editing and autosave
+- [x] 4.3 Build the text widget with independent editing and autosave
   - Hold each widget's draft text locally, initialised from its stored text, so editing one widget never affects another or re-renders siblings.
   - Send every change to the scheduler, flush on blur, and display the live save status with a retry action in the error state.
   - Render inside the bordered container with an accessible text input label and a delete control labelled with the widget's position.
