@@ -100,7 +100,7 @@
   - Depends on 3.3 and 3.4.
   - _Requirements: 3.2, 4.2_
 
-- [ ] 4.2 Implement board state: load, add and delete
+- [x] 4.2 Implement board state: load, add and delete
   - Load all widgets on start with distinct loading, ready and error phases, and support retrying a failed load.
   - Seed the scheduler's saved baseline for each loaded or newly created widget.
   - Add a widget per click by requesting creation from the backend and appending the result in order. Track pending creations without blocking further clicks, and surface creation failures as a dismissible notice.

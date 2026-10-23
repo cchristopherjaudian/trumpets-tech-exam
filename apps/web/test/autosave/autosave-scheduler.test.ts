@@ -370,6 +370,22 @@ describe('AutosaveScheduler', () => {
     });
   });
 
+  describe('peek', () => {
+    it('exposes the last saved text and current draft of a widget', () => {
+      scheduler.markSaved('a', 'stored');
+      scheduler.schedule('a', 'stored + edits');
+
+      expect(scheduler.peek('a')).toEqual({ lastSaved: 'stored', draft: 'stored + edits' });
+    });
+
+    it('returns undefined for unknown or cancelled widgets', () => {
+      scheduler.cancel('a');
+
+      expect(scheduler.peek('a')).toBeUndefined();
+      expect(scheduler.peek('never-seen')).toBeUndefined();
+    });
+  });
+
   describe('dispose', () => {
     it('clears pending timers so nothing is saved afterwards', async () => {
       scheduler.schedule('a', 'x');

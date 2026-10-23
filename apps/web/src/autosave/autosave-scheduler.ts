@@ -24,6 +24,8 @@ export interface AutosaveScheduler {
   /** Forgets a widget: drops its timer and ignores any in-flight response. */
   cancel(id: WidgetId): void;
   getStatus(id: WidgetId): SaveStatus;
+  /** The stored baseline and current draft, e.g. to restore a widget after a failed delete. */
+  peek(id: WidgetId): { lastSaved: string; draft: string } | undefined;
   subscribe(id: WidgetId, listener: (status: SaveStatus) => void): Unsubscribe;
   dispose(): void;
 }
@@ -175,6 +177,11 @@ export function createAutosaveScheduler({
     },
 
     getStatus: (id) => entries.get(id)?.status ?? 'saved',
+
+    peek(id) {
+      const entry = entries.get(id);
+      return entry && { lastSaved: entry.lastSaved, draft: entry.draft };
+    },
 
     subscribe(id, listener) {
       const set = listeners.get(id) ?? new Set();

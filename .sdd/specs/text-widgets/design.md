@@ -125,7 +125,7 @@ stateDiagram-v2
 ### Load, add and delete
 - **Load (4.1–4.5)**: `useWidgets` calls `GET /api/widgets` on mount. State moves `loading → ready | error`, and the error state renders an `Alert` with a Retry button that re-runs the load. Each returned widget seeds `scheduler.markSaved(id, text)`.
 - **Add (1.2–1.5)**: Each click calls `POST /api/widgets` independently. On `201` the widget is appended to the board list. A failure shows a dismissible `Alert`. The add button shows a pending count but stays enabled (1.3).
-- **Delete (6.2–6.6)**: The widget's pending save is cancelled with `scheduler.cancel(id)`. The widget is removed optimistically, keeping its index, and then `DELETE /api/widgets/:id` is called. On failure the widget is re-inserted at its original index and an `Alert` is shown. A `404` counts as success because the widget is already gone.
+- **Delete (6.2–6.6)**: The widget's draft is captured with `scheduler.peek(id)` and its pending save is cancelled with `scheduler.cancel(id)`. The widget is hidden optimistically, and then `DELETE /api/widgets/:id` is called. On failure the widget reappears in its original position with its latest draft (the scheduler baseline is restored and unsaved edits are rescheduled), and an `Alert` is shown. A `404` counts as success because the widget is already gone.
 
 ## Requirements Traceability
 
@@ -350,6 +350,7 @@ interface AutosaveScheduler {
   flushAll(options?: { keepalive?: boolean }): void;    // page hide
   cancel(id: WidgetId): void;                           // drop timer + draft + baseline (delete)
   getStatus(id: WidgetId): SaveStatus;
+  peek(id: WidgetId): { lastSaved: string; draft: string } | undefined; // restore after failed delete
   subscribe(id: WidgetId, listener: (status: SaveStatus) => void): Unsubscribe;
   dispose(): void;
 }
@@ -394,7 +395,7 @@ function useWidgets(): {
   dismissNotice: () => void;
 };
 ```
-- `useWidgets` is a `useReducer` with the actions `LOAD_STARTED`, `LOAD_SUCCEEDED`, `LOAD_FAILED`, `CREATE_STARTED`, `CREATE_SUCCEEDED`, `CREATE_FAILED`, `REMOVED`, `RESTORED { widget, index }` and `NOTICE_DISMISSED`.
+- `useWidgets` is a `useReducer` with the actions `LOAD_STARTED`, `LOAD_SUCCEEDED`, `LOAD_FAILED`, `CREATE_STARTED`, `CREATE_SUCCEEDED`, `CREATE_FAILED`, `DELETE_STARTED`, `DELETE_SUCCEEDED`, `DELETE_FAILED { id, text? }` and `NOTICE_DISMISSED`. A widget being deleted stays in the list but is hidden via a `deletingIds` set, so a failed delete reappears in its exact original position even when several deletes overlap; `DELETE_FAILED` carries the latest draft (from `scheduler.peek`) so unsaved edits are restored too.
 - The board's `widgets[].text` is only the initial text for mounting. Live drafts live in `useAutosave`, so keystrokes never touch board state (Efficiency, 5.6).
 - The `AutosaveScheduler` instance is created once per app in `WidgetApiProvider`. A `pagehide`/`visibilitychange` listener calls `flushAll({ keepalive: true })`.
 
