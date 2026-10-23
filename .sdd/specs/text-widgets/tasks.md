@@ -38,7 +38,7 @@
   - Depends on 2.1.
   - _Requirements: 1.5, 3.7, 6.3, 7.1, 7.3_
 
-- [ ] 2.3 Expose the REST API with boundary validation and uniform errors
+- [x] 2.3 Expose the REST API with boundary validation and uniform errors
   - Provide endpoints to list, create, update the text of, and delete widgets, plus a health check, all exchanging JSON.
   - Validate request bodies and identifiers against the shared schemas before reaching the service. Respond with validation errors and field details on failure.
   - Limit request body size (512 KB). Map oversize bodies to "payload too large" and malformed JSON to a validation error.
