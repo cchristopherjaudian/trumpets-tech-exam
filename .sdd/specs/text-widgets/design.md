@@ -229,8 +229,8 @@ interface ApiErrorBody {
 interface WidgetRepository {
   list(): Widget[];                       // creation order, O(n)
   get(id: WidgetId): Widget | undefined;  // O(1)
-  insert(widget: Widget): void;           // O(1), appends
-  update(widget: Widget): void;           // O(1), keeps position
+  insert(widget: Widget): void;           // O(1), appends; throws on duplicate id
+  update(widget: Widget): boolean;        // O(1), keeps position; false if missing (never inserts)
   delete(id: WidgetId): boolean;          // O(1), true if existed
 }
 ```

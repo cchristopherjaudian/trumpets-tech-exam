@@ -21,7 +21,7 @@
   - _Requirements: 5.1, 5.3, 5.4, 5.5, 7.2, 7.4, 7.6_
 
 - [ ] 2. Widget Service backend
-- [ ] 2.1 (P) Build the in-memory widget store
+- [x] 2.1 (P) Build the in-memory widget store
   - Store widgets keyed by identifier with constant-time get, insert, update and delete.
   - Return widgets in creation order, and keep a widget's position unchanged when its text is updated.
   - Return copies so callers cannot mutate stored data.
